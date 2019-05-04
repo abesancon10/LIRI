@@ -1,16 +1,16 @@
 require("dotenv").config();
-var keys = require("./keys.js");
+const axios = require("axios");
+const keys = require("./keys.js");
 
-var input = process.argv[2];
-var value = process.argv[3];
-console.log("hello there");
+const input = process.argv;
+
+console.log("Hello there");
 
 switch (action) {
   case "concert-this":
     concert();
 
   case "concert-this":
-    
 
   case "spotify-this-song":
     spotify();
@@ -21,4 +21,29 @@ switch (action) {
   case "do-what-it-says":
     doIt();
 }
-console.log("General Kenobi!");
+
+function movie() {
+  let movieInput = process.argv;
+  let movieName = "";
+  for (var i = 2; i < movieInput.length; i++) {
+    if (i > 2 && i < nodeArgs.length) {
+      movieName = movieName + "+" + nodeArgs[i];
+    } else {
+      movieName += nodeArgs[i];
+    }
+  }
+  let movieURL =
+    "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+
+  console.log(movieURL);
+
+  axios.get(movieURL).then(function(response) {
+    console.log("Title: " + response.data.Title) +
+      "\n" +
+      "Release Year: " +
+      response.data.Year +
+      "\n" +
+      "Rating: " +
+      response.data.Ratings;
+  });
+}
