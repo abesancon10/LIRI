@@ -1,0 +1,22 @@
+{
+  "name": "liri",
+  "version": "1.0.0",
+  "description": "LIRI-bot",
+  "main": "keys.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abesancon10/LIRI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abesancon10/LIRI/issues"
+  },
+  "homepage": "https://github.com/abesancon10/LIRI#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0"
+  }
+}
