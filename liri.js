@@ -1,25 +1,53 @@
 require("dotenv").config();
 var axios = require("axios");
+var bandsintown = require("bandsintown");
 var keys = require("./keys.js");
 
 var action = process.argv[2];
 var entry = process.argv[3];
 
 switch (action) {
+    
   case "concert-this":
     concert();
     console.log(concert);
-  case "spotify-this-song":
-    spotify();
-    console.log(spotify);
+
+//   case "spotify-this-song":
+//     spotify();
+//     console.log(spotify);
+//commented out to prevent defining error
+
   case "movie-this":
     movie();
 
-  //   case "do-what-it-says":
-  //     doIt();
-  //     console.log(doIt)
+//   case "do-what-it-says":
+//     doIt();
+//     console.log(doIt);
+//commented out to prevent defining error
 }
 
+function concert() {
+  var bandsURL =
+    "https://rest.bandsintown.com/artists/" +
+    entry +
+    "/events?app_id=codingbootcamp";
+
+  axios.get(bandsURL).then(function(response) {
+    console.log(
+      "Artist: " +
+        entry +
+        "\n" +
+        "Venue: " +
+        response.venue +
+        "\n" +
+        "Venue Location: " +
+        response.venue +
+        "\n" +
+        "Date: " +
+        response.datetime
+    );
+  });
+}
 function movie() {
   var movieURL =
     "http://www.omdbapi.com/?t=" +
@@ -29,7 +57,7 @@ function movie() {
 
   axios.get(movieURL).then(function(err, response) {
     if (err) {
-      response === false;
+      response == false;
       return console.log(
         "Title: Mr. Nobody" +
           "\n" +

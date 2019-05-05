@@ -18,6 +18,9 @@
   "homepage": "https://github.com/abesancon10/LIRI#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "dotenv": "^8.0.0"
+    "bandsintown": "^1.0.1",
+    "bandsintownv3": "^1.1.1",
+    "dotenv": "^8.0.0",
+    "moment": "^2.24.0"
   }
 }
