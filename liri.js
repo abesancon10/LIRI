@@ -20,6 +20,13 @@ switch (action) {
   //     console.log(doIt)
 }
 
+function concert() {
+  var bandURL =
+    "https://rest.bandsintown.com/artists/" +
+    artist +
+    "/events?app_id=codingbootcamp";
+}
+
 function movie() {
   var movieURL =
     "http://www.omdbapi.com/?t=" +
