@@ -21,27 +21,58 @@ switch (action) {
 }
 
 function movie() {
-//   var movieName = "";
+  var movieURL =
+    "http://www.omdbapi.com/?t=" +
+    entry +
+    "&y=&plot=short&tomatoes=true&apikey=trilogy";
+  console.log(movieURL);
 
-//   for (var i = 2; i < entry.length; i++) {
-//     if (i > 2 && i < entry.length) {
-//       movieName = movieName + "+" + entry[i];
-//     } else {
-//       movieName += entry[i];
-//     }
-
-    var movieURL =
-      "http://www.omdbapi.com/?t=" + entry + "&y=&plot=short&apikey=trilogy";
-    console.log(movieURL);
-
-    axios.get(movieURL).then(function(response) {
-      console.log(
-        "Title: " +
-          response.data.Title +
+  axios.get(movieURL).then(function(err, response) {
+    if (err) {
+      response === false;
+      return console.log(
+        "Title: Mr. Nobody" +
           "\n" +
-          "Release Year: " +
-          response.data.Year
+          "Release Year: 2009" +
+          "\n" +
+          "IMDB Rating: 7.8" +
+          "\n" +
+          "Rotten Tomatoes Rating: N/A" +
+          "\n" +
+          "Country: Belgium, Germany, Canada, France, USA, UK" +
+          "\n" +
+          "Language: English, Mohawk" +
+          "\n" +
+          "Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible." +
+          "\n" +
+          "Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham"
       );
-    });
-  }
-
+    }
+    console.log(
+      "Title: " +
+        response.data.Title +
+        "\n" +
+        "Release Year: " +
+        response.data.Year +
+        "\n" +
+        "IMDB Rating: " +
+        response.data.imdbRating +
+        "\n" +
+        "Rotten Tomatoes Rating: " +
+        response.data.tomatoMeter +
+        "\n" +
+        "Country: " +
+        response.data.Country +
+        "\n" +
+        "Language: " +
+        response.data.Language +
+        "\n" +
+        "Plot: " +
+        response.data.Plot +
+        "\n" +
+        "Actors: " +
+        response.data.Actors
+    );
+  });
+}
+//Rotten Tomatoes rating with OMDB is returning N/A on their site for different movies across different decades
