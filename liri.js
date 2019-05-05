@@ -8,37 +8,33 @@ var entry = process.argv[3];
 switch (action) {
   case "concert-this":
     concert();
-    console.log(concert)
+    console.log(concert);
   case "spotify-this-song":
     spotify();
-    console.log(spotify)
+    console.log(spotify);
   case "movie-this":
     movie();
 
-//   case "do-what-it-says":
-//     doIt();
-//     console.log(doIt)
+  //   case "do-what-it-says":
+  //     doIt();
+  //     console.log(doIt)
 }
 
 function movie() {
-  var movieName = "";
+//   var movieName = "";
 
-  for (var i = 2; i < entry.length; i++) {
-    if (i > 2 && i < entry.length) {
-      movieName = movieName + "+" + entry[i];
-    } else {
-      movieName += entry[i];
-    }
+//   for (var i = 2; i < entry.length; i++) {
+//     if (i > 2 && i < entry.length) {
+//       movieName = movieName + "+" + entry[i];
+//     } else {
+//       movieName += entry[i];
+//     }
 
     var movieURL =
-      "http://www.omdbapi.com/?t=" +
-      movieName +
-      "&y=&plot=short&apikey=trilogy";
+      "http://www.omdbapi.com/?t=" + entry + "&y=&plot=short&apikey=trilogy";
+    console.log(movieURL);
 
-    axios.get(movieURL).then(function(err, response) {
-      if (err) {
-        return console.log(err);
-      }
+    axios.get(movieURL).then(function(response) {
       console.log(
         "Title: " +
           response.data.Title +
@@ -48,4 +44,4 @@ function movie() {
       );
     });
   }
-}
+
