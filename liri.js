@@ -15,8 +15,8 @@ switch (action) {
   //     console.log(spotify);
   //commented out to prevent defining error
 
-  case "movie-this":
-    movie();
+//   case "movie-this":
+//     movie();
 
   //   case "do-what-it-says":
   //     doIt();
