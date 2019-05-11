@@ -10,49 +10,50 @@ switch (action) {
   case "concert-this":
     concert();
 
-  //   case "spotify-this-song":
-  //     spotify();
-  //     console.log(spotify);
-  //commented out to prevent defining error
+  //     case "spotify-this-song":
+  //       spotify();
+  //       console.log(spotify);
+  //   //commented out to prevent defining error
 
-//   case "movie-this":
-//     movie();
+  case "movie-this":
+    movie();
 
-  //   case "do-what-it-says":
-  //     doIt();
-  //     console.log(doIt);
+  // case "do-what-it-says":
+  //   doIt();
+  //   console.log(doIt);
   //commented out to prevent defining error
 }
 
-// function concert() {
-//   var bandsURL =
-//     "https://rest.bandsintown.com/artists/" +
-//     entry +
-//     "/events?app_id=codingbootcamp";
-//   console.log(bandsURL);
+bandsintown(function concert() {
+  var bandsURL =
+    "https://rest.bandsintown.com/artists/" +
+    entry +
+    "/events?app_id=codingbootcamp";
+  console.log(bandsURL);
 
-//   axios.get(bandsURL).then(function(err, response) {
-//     var jsonData = response.data;
-//     var showData = [
-//       "Artist: " +
-//         entry +
-//         "\n" +
-//         "Venue: " +
-//         jsonData.venue +
-//         "\n" +
-//         "Venue Location: " +
-//         jsonData.venue +
-//         "\n" +
-//         "Date: " +
-//         jsonData.datetime
-//     ];
-//     console.log(showData);
-//     if (err) {
-//       response == false;
-//       console.log("error");
-//     }
-//   });
-// } //I continue to get a ReferenceError thrown at me in the console
+  axios.get(bandsURL).then(function(err, response) {
+    var jsonData = response.data;
+    var showData = [
+      "Artist: " +
+        entry +
+        "\n" +
+        "Venue: " +
+        jsonData.venue +
+        "\n" +
+        "Venue Location: " +
+        jsonData.venue +
+        "\n" +
+        "Date: " +
+        jsonData.datetime
+    ];
+
+    if (err) {
+      response == false;
+      console.log("error");
+    }
+    console.log(showData);
+  });
+}); //I continue to get a ReferenceError thrown at me in the console
 function movie() {
   var movieURL =
     "http://www.omdbapi.com/?t=" +
