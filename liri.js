@@ -7,47 +7,52 @@ var action = process.argv[2];
 var entry = process.argv[3];
 
 switch (action) {
-    
   case "concert-this":
     concert();
-    console.log(concert);
 
-//   case "spotify-this-song":
-//     spotify();
-//     console.log(spotify);
-//commented out to prevent defining error
+  //   case "spotify-this-song":
+  //     spotify();
+  //     console.log(spotify);
+  //commented out to prevent defining error
 
   case "movie-this":
     movie();
 
-//   case "do-what-it-says":
-//     doIt();
-//     console.log(doIt);
-//commented out to prevent defining error
+  //   case "do-what-it-says":
+  //     doIt();
+  //     console.log(doIt);
+  //commented out to prevent defining error
 }
 
-function concert() {
-  var bandsURL =
-    "https://rest.bandsintown.com/artists/" +
-    entry +
-    "/events?app_id=codingbootcamp";
+// function concert() {
+//   var bandsURL =
+//     "https://rest.bandsintown.com/artists/" +
+//     entry +
+//     "/events?app_id=codingbootcamp";
+//   console.log(bandsURL);
 
-  axios.get(bandsURL).then(function(response) {
-    console.log(
-      "Artist: " +
-        entry +
-        "\n" +
-        "Venue: " +
-        response.venue +
-        "\n" +
-        "Venue Location: " +
-        response.venue +
-        "\n" +
-        "Date: " +
-        response.datetime
-    );
-  });
-}
+//   axios.get(bandsURL).then(function(err, response) {
+//     var jsonData = response.data;
+//     var showData = [
+//       "Artist: " +
+//         entry +
+//         "\n" +
+//         "Venue: " +
+//         jsonData.venue +
+//         "\n" +
+//         "Venue Location: " +
+//         jsonData.venue +
+//         "\n" +
+//         "Date: " +
+//         jsonData.datetime
+//     ];
+//     console.log(showData);
+//     if (err) {
+//       response == false;
+//       console.log("error");
+//     }
+//   });
+// } //I continue to get a ReferenceError thrown at me in the console
 function movie() {
   var movieURL =
     "http://www.omdbapi.com/?t=" +
